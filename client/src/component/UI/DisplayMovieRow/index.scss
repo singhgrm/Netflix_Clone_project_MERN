@@ -1,0 +1,169 @@
+// Override swiper styles
+/* .swiper-pagination {
+	top: 0 !important;
+	height: 2rem !important;
+	text-align: right !important;
+	padding-right: 4rem !important;
+} */
+
+.swiper-pagination-bullet {
+	background-color: rgb(255, 255, 255) !important;
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets {
+	bottom: 98% !important;
+	left: 43% !important;
+	width: 100% !important;
+}
+.swiper-container-horizontal > .swiper-scrollbar {
+	display: none;
+}
+
+div.swiper-button-prev,
+div.swiper-button-next {
+	transition: all 450ms !important;
+	color: rgb(255, 255, 255);
+
+	&:hover {
+		transform: scale(1.2) !important;
+		transition: all 450ms !important;
+	}
+}
+
+.swiper-slide {
+	transition: all 450ms !important;
+	/* padding-left: 5px;
+	padding-right: 5px; */
+}
+
+.swiper-wrapper:hover .swiper-slide {
+	opacity: 0.07 !important;
+
+	&:hover {
+		transform: scale(1) !important;
+		opacity: 1 !important;
+
+		@include responsive(tab_port) {
+			transform: scale(1.2) !important;
+		}
+	}
+}
+
+.movieShowcase {
+	background-color: $color-background;
+	color: #fff;
+
+	&__container::-webkit-scrollbar {
+		display: none;
+	}
+
+	&__container {
+		@include responsive(phone) {
+			width: 98vw;
+		}
+
+		&--movie:hover ~ &--movie {
+			transform: translate3d(0, 0, 0);
+			@include responsive(tab_port) {
+				transform: translate3d(3rem, 0, 0);
+			}
+
+			@include responsive(phone) {
+				transform: translate3d(2.8rem, 0, 0);
+			}
+		}
+
+		&--movie__netflix:hover ~ &--movie__netflix {
+			transform: translate3d(1rem, 0, 0);
+		}
+
+		&:hover &--movie__netflix {
+			&:hover {
+				transform: scale(1.1) !important;
+
+				@include responsive(tab_port) {
+					transform: scale(1.05) !important;
+				}
+
+				@include responsive(phone) {
+					transform: scale(1.05) !important;
+				}
+			}
+		}
+
+		&--movie {
+			cursor: pointer;
+			transition: all 450ms;
+			transform: center left;
+			padding-top: 2.5rem;
+			padding-bottom: 2.5rem;
+			min-height: 0;
+			object-fit: contain;
+
+			&-image {
+				height: 100%;
+				width: 100%;
+				object-fit: contain;
+			}
+			&-title {
+				position: absolute;
+				bottom: 31px;
+				background: rgb(0, 0, 0);
+				background: rgba(0, 0, 0, 0.5); /* Black see-through */
+				color: #f1f1f1;
+				width: 100%;
+				transition: 0.5s ease;
+				opacity: 0;
+				color: white;
+				font-size: 20px;
+				padding: 10px 0px;
+				text-align: center;
+			}
+
+			&__netflix {
+				min-height: 0;
+				padding-top: 3rem;
+				padding-bottom: 4rem;
+				padding-right: 1rem;
+				cursor: pointer;
+				transition: all 450ms;
+				transform: center left;
+			}
+		}
+	}
+}
+.movieSwipe {
+	&:hover {
+		.movieShowcase__container--movie-title {
+			opacity: 1;
+		}
+	}
+}
+
+.CategoryShowcase {
+	cursor: pointer;
+	display: flex;
+	width: fit-content;
+	height: fit-content;
+
+	&__title {
+		font-size: 25px;
+		margin-left: 2rem;
+		margin-bottom: 0px;
+		width: fit-content;
+		height: fit-content;
+	}
+	&__explore {
+		margin: 1.7rem 0.2rem 0rem 0.5rem;
+		display: none;
+		transition: display 2s;
+	}
+	&__icon {
+		margin: 1.4rem 0.3rem 0rem 0.3rem;
+	}
+	&:hover {
+		.CategoryShowcase__explore {
+			display: block;
+		}
+	}
+}
